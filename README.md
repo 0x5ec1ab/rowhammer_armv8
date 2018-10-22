@@ -12,16 +12,22 @@ However, after pairs of aggressor rows are acquired, the hammering process is un
 # How to run our experiments
 ### Get mapping from physical address to DRAM
 
+We implemented this in a kernel module. 
+
+To perform double-sided hammering, we are interested in the second lowest row bit. 
+
+We found the second lowest row bit is bit 20 of the physical address on AML-S905X-CC. 
+
 ```
 cd 1_phy2dram_mapping 
 make  
 make test  
 ```
 
-We implemented this in a kernel module. 
 
 ### Install pagemap lib
-This library can be used to read pagemap file and find candidate aggressor pairs
+
+This library can be used to read "/proc/<pid>/pagemap" file and find candidate aggressor pairs
 
 ```
 cd 2_find_aggressors  
@@ -31,7 +37,7 @@ make install
 
 ### Start rowhammer test
 
-run rowhammer program and output flippable bits
+Run rowhammer program and output flippable bits
 
 ```
 cd 3_rowhammer_test  
