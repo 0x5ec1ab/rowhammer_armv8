@@ -25,7 +25,7 @@ make test
 
 ### Install pagemap lib
 
-This library can be used to read "/proc/<pid>/pagemap" file and find candidate aggressor pairs
+This library can be used to read "/proc/\<pid\>/pagemap" file and find candidate aggressor pairs
 
 ```
 cd 2_find_aggressors  
