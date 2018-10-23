@@ -19,7 +19,7 @@ sysreg_start(void)
   unsigned regVal;
   printk(KERN_INFO "Insert module \n");
   
-	// map physical addresses of regs to kernel's address space
+  // map physical addresses of regs to kernel's address space
   regPtr = ioremap(BASE_ADDR, REG_NUM * REG_SIZE);
 
   

@@ -72,8 +72,7 @@ generate_va_table(int pgmp)
     if (pfn <= 0 || pfn > VPN_SIZE){
       perror("VPN_TABLE TOO SMALL");
       break;
-    }
-    else
+    } else
       va_tab[pfn] = index / sizeof(data) * PAGE_SIZE; 
   }
 }
@@ -120,12 +119,10 @@ generate_addr_list(char *fname)
     if (curr->va1 == 0 || curr->va2 == 0){
       free(curr);
       continue;
-    }
-    else if (head == NULL){
+    } else if (head == NULL){
       head = curr;
       prev = head;
-    }
-    else {
+    } else {
       prev->next = curr;
       prev = prev->next;
     }
@@ -197,8 +194,7 @@ main(int argc, char **argv)
     addr2 = curr->va2;
 
 
-    switch (mode)
-    {
+    switch (mode) {
       case 1:
         // hammer using DC CVAC + STR without DSB
         for (j = 0; j < HAMMER_ROUND; ++j) {

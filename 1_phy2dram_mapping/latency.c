@@ -40,7 +40,7 @@ module_bgn(void)
   // enable PMC
   writeValue = 0x80000000;
   asm volatile("MSR PMCNTENSET_EL0, %0":: "r" (writeValue));
-	// Performance Control Register | 00111 | 
+  // Performance Control Register | 00111 | 
   // Always enable cycle counter | enable export events | 
   // disable clock divider | reset clock couner | reset event couner
   writeValue = 0x00000007;
@@ -73,13 +73,13 @@ module_bgn(void)
 
         // Cycle Counter1 t1
         asm volatile("MRS %0, PMCCNTR_EL0":"=r" (t1));
-			  for (i = 0; i < 1000; ++i) {
+        for (i = 0; i < 1000; ++i) {
           // Load
           asm volatile("ldr %[d], [%[a]]"::[d] "r" (temp), [a] "r" (v_addr_0));
           asm volatile("ldr %[d], [%[a]]"::[d] "r" (temp), [a] "r" (v_addr_1));
           // Clear by VA
-	        asm volatile("DC CIVAC, %0"::"r" (v_addr_0));
-	        asm volatile("DC CIVAC, %0"::"r" (v_addr_1));
+          asm volatile("DC CIVAC, %0"::"r" (v_addr_0));
+          asm volatile("DC CIVAC, %0"::"r" (v_addr_1));
           
           // Barier
           asm volatile("DSB 0XF");

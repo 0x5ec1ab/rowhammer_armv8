@@ -59,8 +59,7 @@ generate_va_table(int pgmp)
     if (pfn <= 0 || pfn > VPN_SIZE){
       perror("VPN_TABLE TOO SMALL");
       break;
-    }
-    else
+    } else
       va_tab[pfn] = index / sizeof(data) * PAGE_SIZE; 
   }
 }
@@ -106,12 +105,10 @@ generate_addr_list(char *fname)
     if (curr->va1 == 0 || curr->va2 == 0){
       free(curr);
       continue;
-    }
-    else if (head == NULL){
+    } else if (head == NULL){
       head = curr;
       prev = head;
-    }
-    else {
+    } else {
       prev->next = curr;
       prev = prev->next;
     }
@@ -272,13 +269,13 @@ main(int argc, char **argv)
     printf("round %lu\n", h_rnd);
     i = 0;
     cnt = 0;
-    for(curr = head; curr != NULL; curr = curr->next){
+    for(curr = head; curr != NULL; curr = curr->next) {
       addr1 = curr->va1;
       addr2 = curr->va2;
       if (addr1 == 0 || addr2 == 0)
         continue;
       i++;
-      if (prev_init != curr->init_val){
+      if (prev_init != curr->init_val) {
         printf("change check bit to %lx\n", curr->init_val);
         memset(chunk, curr->init_val, CHUNK_SIZE);
         prev_init = curr->init_val;
