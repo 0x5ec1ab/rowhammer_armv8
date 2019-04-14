@@ -14,7 +14,7 @@ However, after pairs of aggressor rows are acquired, the hammering process is un
 
 We implement this in a kernel module. 
 To perform double-sided hammering, we are interested in the second lowest row bit.
-(We found the second lowest row bit is bit 20 of the physical address on AML-S905X-CC.)
+(We found the second lowest row bit is bit 16 of the physical address on AML-S905X-CC.)
 
 ```
 cd 1_phy2dram_mapping 
